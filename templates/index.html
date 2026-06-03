@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyPulse Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <div class="aurora aurora-one"></div>
+  <div class="aurora aurora-two"></div>
+  <div class="aurora aurora-three"></div>
+
+  <main class="app-shell">
+    <nav class="navbar glass-card">
+      <div class="brand">
+        <div class="logo">☁</div>
+        <div>
+          <h1>SkyPulse</h1>
+          <p>Live weather intelligence</p>
+        </div>
+      </div>
+      <button id="localWeatherBtn" class="location-btn">📍 Use my location</button>
+    </nav>
+
+    <section class="hero glass-card">
+      <div class="hero-content">
+        <p class="eyebrow">Realtime • Forecast • Local</p>
+        <h2>Weather that feels alive.</h2>
+        <p class="hero-text">Search any city or allow location access to view local temperature, wind, humidity, pressure, rain probability and a 7-day forecast.</p>
+      </div>
+
+      <form id="searchForm" class="search-box" autocomplete="off">
+        <div class="search-input-wrap">
+          <span>🔎</span>
+          <input id="cityInput" type="text" placeholder="Search city e.g. Delhi, Mumbai, London" />
+        </div>
+        <button type="submit">Search</button>
+        <div id="suggestions" class="suggestions"></div>
+      </form>
+    </section>
+
+    <section id="messageBox" class="message hidden"></section>
+
+    <section id="weatherDashboard" class="dashboard hidden">
+      <div class="current-card glass-card">
+        <div class="current-topline">
+          <div>
+            <p class="label">Current weather</p>
+            <h3 id="placeName">--</h3>
+            <p id="updatedTime" class="muted">--</p>
+          </div>
+          <div id="weatherIcon" class="weather-icon">☀️</div>
+        </div>
+
+        <div class="temperature-row">
+          <div>
+            <span id="temperature" class="temperature">--</span>
+            <span class="degree">°C</span>
+          </div>
+          <div class="condition-pill" id="conditionText">--</div>
+        </div>
+
+        <div class="feels-row">
+          Feels like <strong id="feelsLike">--</strong>°C
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <article class="metric-card glass-card">
+          <span>💧</span>
+          <p>Humidity</p>
+          <strong id="humidity">--</strong>
+        </article>
+        <article class="metric-card glass-card">
+          <span>🌬️</span>
+          <p>Wind</p>
+          <strong id="wind">--</strong>
+        </article>
+        <article class="metric-card glass-card">
+          <span>☔</span>
+          <p>Rain</p>
+          <strong id="rain">--</strong>
+        </article>
+        <article class="metric-card glass-card">
+          <span>🧭</span>
+          <p>Pressure</p>
+          <strong id="pressure">--</strong>
+        </article>
+      </div>
+
+      <section class="glass-card forecast-section">
+        <div class="section-title">
+          <h3>Next 12 hours</h3>
+          <p>Temperature, rain chance and wind</p>
+        </div>
+        <div id="hourlyForecast" class="hourly-scroller"></div>
+      </section>
+
+      <section class="glass-card forecast-section">
+        <div class="section-title">
+          <h3>7-day forecast</h3>
+          <p>Daily high, low, wind and rain probability</p>
+        </div>
+        <div id="dailyForecast" class="daily-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
