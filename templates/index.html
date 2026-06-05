@@ -3,42 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkyPulse Weather</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Weather App</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 <body>
-  <div class="aurora aurora-one"></div>
-  <div class="aurora aurora-two"></div>
-  <div class="aurora aurora-three"></div>
-
   <main class="app-shell">
     <nav class="navbar glass-card">
       <div class="brand">
-        <div class="logo">☁</div>
+        <div class="logo">☀️</div>
         <div>
-          <h1>SkyPulse</h1>
-          <p>Live weather intelligence</p>
+          <h1>Weather App</h1>
+          <p>Simple weather updates for your day</p>
         </div>
       </div>
-      <button id="localWeatherBtn" class="location-btn">📍 Use my location</button>
+      <button id="localWeatherBtn" class="location-btn">Use my location</button>
     </nav>
 
     <section class="hero glass-card">
       <div class="hero-content">
-        <p class="eyebrow">Realtime • Forecast • Local</p>
-        <h2>Weather that feels alive.</h2>
-        <p class="hero-text">Search any city or allow location access to view local temperature, wind, humidity, pressure, rain probability and a 7-day forecast.</p>
+        <p class="eyebrow">Today’s weather</p>
+        <h2>Check the weather before you step out.</h2>
+        <p class="hero-text">Search for any city or allow location access to see current temperature, humidity, wind, rain, pressure, hourly updates and the weekly forecast.</p>
       </div>
 
       <form id="searchForm" class="search-box" autocomplete="off">
+        <label for="cityInput">Enter city name</label>
         <div class="search-input-wrap">
-          <span>🔎</span>
-          <input id="cityInput" type="text" placeholder="Search city e.g. Delhi, Mumbai, London" />
+          <input id="cityInput" type="text" placeholder="Example: Delhi, Mumbai, London" />
         </div>
-        <button type="submit">Search</button>
+        <button type="submit">Search weather</button>
         <div id="suggestions" class="suggestions"></div>
       </form>
     </section>

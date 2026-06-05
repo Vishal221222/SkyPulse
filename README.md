@@ -1,54 +1,46 @@
-# SkyPulse Weather - Flask Weather App
+# SkyPulse Weather App
 
-A stunning Flask weather app with:
+A polished Flask weather app with city search, browser GPS location, approximate IP fallback, current weather, 12-hour forecast and 7-day forecast.
 
-- Browser local weather using Geolocation
-- City search with Open-Meteo Geocoding API
-- Current temperature, feels-like temperature, humidity, rain, pressure and wind
-- Next 12-hour forecast
-- 7-day forecast
-- Animated glassmorphism frontend
-- No API key required
-
-## Run locally
+## Run
 
 ```bash
-cd stunning_weather_app
 python -m venv env
 ```
 
-### Windows PowerShell
-
-```bash
-.\env\Scripts\Activate.ps1
-pip install -r requirements.txt
-python app.py
-```
-
-### CMD
+Windows:
 
 ```bash
 env\Scripts\activate
-pip install -r requirements.txt
-python app.py
 ```
 
-### macOS / Linux
+macOS/Linux:
 
 ```bash
 source env/bin/activate
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
+```
+
+Start Flask:
+
+```bash
 python app.py
 ```
 
-Open:
+Open exactly one of these URLs:
 
 ```text
+http://localhost:5000
 http://127.0.0.1:5000
 ```
 
-## Notes
+## Important for location
 
-Local weather uses the browser's `navigator.geolocation` feature. The browser will ask for location permission.
+Browser GPS location works only on secure contexts. For local development, `localhost` and `127.0.0.1` are allowed. Do not open the HTML file directly and do not use `http://0.0.0.0:5000` in the browser.
 
-This project uses Open-Meteo, so you do not need to create an API key.
+If precise browser location is denied or unavailable, the app automatically tries approximate IP-based location.
